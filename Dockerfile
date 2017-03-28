@@ -7,5 +7,6 @@ RUN set -x \
 
 EXPOSE 53/udp 53/tcp
 
-ENTRYPOINT ["named", "-ubind"]
-CMD ["-g"]
+COPY ./docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["named"]
